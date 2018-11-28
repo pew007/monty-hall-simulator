@@ -3,7 +3,23 @@
 {% block body %}
     <div class="container">
         <div class="row">
-            <h1>Hello</h1>
+            <div class="page-header">
+                <h1>Monty Hall Simulator</h1>
+            </div>
         </div>
+
+        <div class="row">
+            <form class="form-inline">
+                <label for="attempts" class="sr-only">Attempts</label>
+                <input type="text"
+                       name="attempts"
+                       id="attempts"
+                       class="form-control mb-2 mr-sm-2 mb-sm-0"
+                       placeholder="Attempts">
+                <button class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+
+        <div id="results"></div>
     </div>
 {% endblock %}

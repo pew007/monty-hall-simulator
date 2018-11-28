@@ -21,6 +21,7 @@
     },
     "require": {
         "php": ">=7.0.0",
+        "friendsofsymfony/jsrouting-bundle": "^2.2",
         "sensio/distribution-bundle": "^5.0.19",
         "sensio/framework-extra-bundle": "^5.0.0",
         "symfony/assetic-bundle": "^2.8",

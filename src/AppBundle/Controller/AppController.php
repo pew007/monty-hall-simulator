@@ -11,12 +11,22 @@ class AppController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @param Request $request
      * @return Response
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
-        // replace this example code with whatever you need
         return $this->render('default/index.html.twig');
+    }
+
+    /**
+     * @Route("/simulate/{attempts}", name="simulation", options={"expose"=true})
+     * @param $attempts
+     * @return Response
+     */
+    public function simulateAction($attempts)
+    {
+
+
+        return $this->render(':default:_simulation_results.html.twig');
     }
 }

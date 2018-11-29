@@ -26,7 +26,6 @@ class AppController extends Controller
     public function simulateAction($attempts)
     {
 
-
         return $this->render(':default:_simulation_results.html.twig');
     }
 }

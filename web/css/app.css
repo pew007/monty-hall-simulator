@@ -6,6 +6,10 @@
     margin: 2em 0;
 }
 
+.hide {
+    display: none;
+}
+
 .loader,
 .loader:after {
     border-radius: 50%;

@@ -2,24 +2,34 @@
 
 {% block body %}
     <div class="container">
-        <div class="row">
-            <div class="page-header">
+        <div class="row my-2">
+            <div class="col page-header">
                 <h1>Monty Hall Problem Simulator</h1>
             </div>
         </div>
 
-        <div class="row">
-            <form class="form-inline">
-                <label for="attempts" class="sr-only">Attempts</label>
-                <input type="text"
-                       name="attempts"
-                       id="attempts"
-                       class="form-control mb-2 mr-sm-2 mb-sm-0"
-                       placeholder="Attempts">
-                <button class="btn btn-primary" id="submitBtn">Submit</button>
-            </form>
+        <div class="row my-2">
+            <div class="col">
+                <form class="form-inline">
+                    <label for="attempts" class="sr-only">Attempts</label>
+                    <input type="text"
+                           name="attempts"
+                           id="attempts"
+                           class="form-control mb-2 mr-sm-2 mb-sm-0"
+                           placeholder="Attempts">
+                    <button class="btn btn-primary" id="submitBtn">Submit</button>
+                </form>
+            </div>
         </div>
 
-        <div id="results"></div>
+        <div class="row">
+            <div class="col">
+                <p class="alert alert-danger hide" id="alert"></p>
+            </div>
+        </div>
+
+        <div class="row my-4">
+            <div id="result" class="col"></div>
+        </div>
     </div>
 {% endblock %}

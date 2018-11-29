@@ -2,8 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Lib\Game;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -25,7 +25,20 @@ class AppController extends Controller
      */
     public function simulateAction($attempts)
     {
+        $winIfChange = 0;
 
-        return $this->render(':default:_simulation_results.html.twig');
+        for ($i = 0; $i < $attempts; $i++) {
+            $game = new Game();
+
+            $game->pickADoor();
+            $game->openADoor();
+            $game->switchDoor();
+
+            if ($game->win()) {
+                $winIfChange++;
+            }
+        }
+
+        return $this->render(':default:_simulation_results.html.twig', ['winIfChange' => $winIfChange]);
     }
 }

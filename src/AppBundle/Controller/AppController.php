@@ -25,7 +25,7 @@ class AppController extends Controller
      */
     public function simulateAction($attempts)
     {
-        $winIfChange = 0;
+        $wins = 0;
 
         for ($i = 0; $i < $attempts; $i++) {
             $game = new Game();
@@ -35,10 +35,18 @@ class AppController extends Controller
             $game->switchDoor();
 
             if ($game->win()) {
-                $winIfChange++;
+                $wins++;
             }
         }
 
-        return $this->render(':default:_simulation_results.html.twig', ['winIfChange' => $winIfChange]);
+        $losses         = $attempts - $wins;
+        $templateParams = [
+            'wins'             => $wins,
+            'losses'           => $losses,
+            'winPercentage'    => $wins / $attempts,
+            'lossesPercentage' => $losses / $attempts
+        ];
+
+        return $this->render(':default:_simulation_results.html.twig', $templateParams);
     }
 }

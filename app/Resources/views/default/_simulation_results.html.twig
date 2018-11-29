@@ -1,6 +1,4 @@
 <div>
-
-    {{ dump(winIfChange) }}
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -13,14 +11,14 @@
         <tbody>
         <tr>
             <th>Wins</th>
-            <td></td>
-            <td></td>
+            <td>{{ wins }}</td>
+            <td>{{ losses }}</td>
         </tr>
 
         <tr>
             <th>Percentage</th>
-            <td></td>
-            <td></td>
+            <td>{{ winPercentage | percentage }}</td>
+            <td>{{ lossesPercentage | percentage }}</td>
         </tr>
         </tbody>
     </table>

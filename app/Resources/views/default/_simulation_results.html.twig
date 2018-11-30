@@ -1,24 +1,24 @@
 <div>
-    <table class="table table-bordered">
+    <table class="table table-bordered table-hover">
         <thead>
         <tr>
-            <th></th>
-            <th>Change</th>
-            <th>No Change</th>
+            <th class="table-primary"></th>
+            <th class="table-primary">Change</th>
+            <th class="table-primary">No Change</th>
         </tr>
         </thead>
 
         <tbody>
         <tr>
-            <th>Wins</th>
-            <td>{{ wins }}</td>
-            <td>{{ losses }}</td>
+            <th class="table-primary">Wins</th>
+            <td class="table-info">{{ wins }}</td>
+            <td class="table-info">{{ losses }}</td>
         </tr>
 
         <tr>
-            <th>Percentage</th>
-            <td>{{ winPercentage | percentage }}</td>
-            <td>{{ lossesPercentage | percentage }}</td>
+            <th class="table-primary">Percentage</th>
+            <td class="table-info">{{ winPercentage | percentage }}</td>
+            <td class="table-info">{{ lossesPercentage | percentage }}</td>
         </tr>
         </tbody>
     </table>

@@ -17,11 +17,15 @@ $(document).ready(function () {
 
         let url = Routing.generate('simulation', {attempts: attempts});
 
-        $result.html('<div class="loader">Loading...</div>');
+        displaySpinner();
 
         $.ajax(url, {
             success: function (html) {
                 $result.html(html);
+            },
+            error: function (xhr, status, error) {
+                displayError(error);
+                clearResult();
             }
         });
     });
@@ -36,5 +40,9 @@ $(document).ready(function () {
 
     function clearResult() {
         $result.html('');
+    }
+
+    function displaySpinner() {
+        $result.html('<div class="loader">Loading...</div>');
     }
 });

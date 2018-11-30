@@ -19,7 +19,11 @@ $(document).ready(function () {
 
         $result.html('<div class="loader">Loading...</div>');
 
-        $result.load(url);
+        $.ajax(url, {
+            success: function (html) {
+                $result.html(html);
+            }
+        });
     });
 
     function displayError(message) {

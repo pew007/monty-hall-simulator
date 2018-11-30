@@ -9,7 +9,7 @@ class Game
 
     /** @var int[] */
     private $doors;
-    /** @var int  */
+    /** @var int */
     private $target;
     /** @var int */
     private $picked;
@@ -108,7 +108,7 @@ class Game
         }
     }
 
-    public function win()
+    public function win(): bool
     {
         return $this->picked == $this->target;
     }

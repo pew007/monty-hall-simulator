@@ -8,7 +8,7 @@ $(document).ready(function () {
     $input.on('keyup', function () {
         let input = $(this).val();
 
-        if (false === $.isNumeric(input) || input >= 1000000) {
+        if (false === $.isNumeric(input) || input >= 1000000 || input <= 0) {
             displayError("Please enter an integer between 1 and 999999");
             disableSubmit();
         } else {

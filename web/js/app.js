@@ -2,28 +2,33 @@ $(document).ready(function () {
 
     let $alert = $('#alert');
     let $result = $('#result');
+    let $input = $('input[name=attempts]');
+    let $submit = $('#submitBtn');
 
-    $(document).on('click', '#submitBtn', function (e) {
+    $input.on('keyup', function () {
+        let input = $(this).val();
+
+        if (false === $.isNumeric(input) || input >= 1000000) {
+            displayError("Please select an integer between 1 and 999999");
+            disableSubmit();
+        } else {
+            dismissError();
+            enableSubmit();
+        }
+    });
+
+    $submit.on('click', function (e) {
         e.preventDefault();
         dismissError();
         clearResult();
 
-        let attempts = $('form').find('input[name=attempts]').val();
-
-        if (attempts <= 0 || false === $.isNumeric(attempts)) {
-            displayError("Input must be an integer greater than 1");
-            return false;
-        }
-
-        let url = Routing.generate('simulation', {attempts: attempts});
-
         displaySpinner();
 
-        $.ajax(url, {
+        $.ajax(Routing.generate('simulation', {attempts: $input.val()}), {
             success: function (html) {
                 $result.html(html);
             },
-            error: function (xhr, status, error) {
+            error:   function (xhr, status, error) {
                 displayError(error);
                 clearResult();
             }
@@ -44,5 +49,13 @@ $(document).ready(function () {
 
     function displaySpinner() {
         $result.html('<div class="loader">Loading...</div>');
+    }
+
+    function disableSubmit() {
+        $submit.prop('disabled', true);
+    }
+
+    function enableSubmit() {
+        $submit.prop('disabled', false);
     }
 });

@@ -9,7 +9,7 @@ $(document).ready(function () {
         let input = $(this).val();
 
         if (false === $.isNumeric(input) || input >= 1000000) {
-            displayError("Please select an integer between 1 and 999999");
+            displayError("Please enter an integer between 1 and 999999");
             disableSubmit();
         } else {
             dismissError();

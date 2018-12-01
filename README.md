@@ -1,4 +1,8 @@
-.checkout
-=========
+# Overview #
+A simulator for the Monty Hall Problem
 
-A Symfony project created on November 28, 2018, 6:03 am.
+# Setup #
+```
+$ composer install
+$ php bin/console server:run
+```

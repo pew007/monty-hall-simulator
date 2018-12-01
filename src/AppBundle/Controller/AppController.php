@@ -19,7 +19,7 @@ class AppController extends Controller
     }
 
     /**
-     * @Route("/simulate/{attempts}", name="simulation", options={"expose"=true})
+     * @Route("/simulate/{attempts}", name="simulation", requirements={"attempts"="\d+"}, options={"expose"=true})
      * @param $attempts
      * @return Response
      */
